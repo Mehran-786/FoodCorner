@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Food Corner</title>
+
+  <!-- External CSS -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Internal CSS -->
+  <style>
+    .chef-badge {
+      background-color: gold;
+      color: #1a1a24;
+      padding: 4px 10px;
+      font-size: 12px;
+      font-weight: 700;
+      border-radius: 4px;
+      display: inline-block;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ========================================================================
+       1. HEADER SECTION
+       Website name: Food Corner
+       Navigation links: Home, Menu, About, Contact
+       ======================================================================== -->
+  <header>
+    <nav>
+      <div class="logo">Food Corner</div>
+      <ul class="nav-links">
+        <li><a href="#welcome">Home</a></li>
+        <li><a href="#menu">Menu</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ========================================================================
+       2. WELCOME SECTION
+       Main heading, Short paragraph, Explore Menu button
+       ======================================================================== -->
+  <section id="welcome">
+    <div class="welcome-content">
+      <h1 class="welcome-heading">Welcome to Food Corner</h1>
+      <p class="welcome-text">
+        Experience fresh, flavorful, and delicious handcrafted meals made with the finest local ingredients. From stone-baked pizzas to juicy gourmet burgers, we serve happiness on every plate.
+      </p>
+      <a href="#menu" class="btn btn-explore">Explore Menu</a>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       3. MENU SECTION
+       4 Food Cards: Pizza, Burger, Sandwich, Pasta
+       ======================================================================== -->
+  <section id="menu">
+    <h2 class="section-heading">Our Menu</h2>
+    
+    <div class="menu-container">
+      
+      <!-- Food Card 1: Pizza (:first-child pseudo-class applies distinct style) -->
+      <div class="food-card" id="pizza-card">
+        <span class="chef-badge">Chef's Pick</span>
+        <img src="images/pizza.jpg" alt="Italian Pepperoni Pizza" class="food-img">
+        <h3 class="food-name">Pepperoni Pizza</h3>
+        <p class="food-desc">
+          Freshly baked artisan pizza topped with rich tomato sauce, melted mozzarella cheese, and crispy beef pepperoni slices.
+        </p>
+        <!-- Inline CSS applied on price tag -->
+        <span class="food-price" style="color: #e63946; font-size: 20px; font-weight: bold;">$14.99</span>
+        <button type="button" class="btn btn-order">Order Now</button>
+      </div>
+
+      <!-- Food Card 2: Burger -->
+      <div class="food-card" id="burger-card">
+        <img src="images/burger.jpg" alt="Classic Gourmet Beef Burger" class="food-img">
+        <h3 class="food-name">Classic Burger</h3>
+        <p class="food-desc">
+          Juicy grilled Angus beef patty topped with melted cheddar cheese, fresh lettuce, sliced tomatoes, and signature burger sauce.
+        </p>
+        <span class="food-price">$11.50</span>
+        <button type="button" class="btn btn-order">Order Now</button>
+      </div>
+
+      <!-- Food Card 3: Sandwich -->
+      <div class="food-card" id="sandwich-card">
+        <img src="images/sandwich.jpg" alt="Toasted Club Sandwich" class="food-img">
+        <h3 class="food-name">Club Sandwich</h3>
+        <p class="food-desc">
+          Toasted triple-decker sandwich layered with roasted turkey slices, crispy bacon strips, fresh greens, and creamy house mayo.
+        </p>
+        <span class="food-price">$9.75</span>
+        <button type="button" class="btn btn-order">Order Now</button>
+      </div>
+
+      <!-- Food Card 4: Pasta -->
+      <div class="food-card" id="pasta-card">
+        <img src="images/pasta.jpg" alt="Creamy Fettuccine Chicken Alfredo" class="food-img">
+        <h3 class="food-name">Chicken Alfredo</h3>
+        <p class="food-desc">
+          Fettuccine pasta tossed in a rich, creamy garlic parmesan sauce and topped with grilled marinated chicken breast.
+        </p>
+        <span class="food-price">$13.25</span>
+        <button type="button" class="btn btn-order">Order Now</button>
+      </div>
+
+    </div>
+
+    <!-- Seasonal deal element styled with display: none in style.css -->
+    <div class="seasonal-deal">
+      Special Winter Discount: 20% off all pasta orders!
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       4. ABOUT SECTION
+       Heading, One paragraph about the restaurant
+       ======================================================================== -->
+  <section id="about">
+    <div class="about-container">
+      <h2 class="section-heading">About Us</h2>
+      <p class="about-text">
+        At Food Corner, we are passionate about serving comforting, high-quality, and mouthwatering food to our community. Established in 2026, our restaurant combines traditional culinary techniques with modern flavors to bring you an unforgettable casual dining experience. We believe that good food brings people together, which is why every recipe is prepared with love, dedication, and the freshest ingredients every single day.
+      </p>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       5. CONTACT SECTION
+       Form containing: Name, Email, Message, Submit button
+       ======================================================================== -->
+  <section id="contact">
+    <h2 class="section-heading">Contact Us</h2>
+    
+    <div class="contact-box">
+      <form action="#contact" method="POST" class="contact-form">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="Enter your email address" required>
+        </div>
+
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="5" placeholder="Write your message here..." required></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-submit">Submit</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       6. FOOTER
+       © 2026 Food Corner
+       ======================================================================== -->
+  <footer>
+    <p>&copy; 2026 Food Corner</p>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,410 @@
+/* ==========================================================================
+   Food Corner — style.css
+   Pure CSS3 Stylesheet implementing all required lab concepts
+   ========================================================================== */
+
+/* Universal Box-Sizing */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Smooth Scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* ==========================================================================
+   1. INHERITANCE, FONTS, COLORS & BODY (Element Selector)
+   - Common font and text color declared on body are inherited by child elements.
+   ========================================================================== */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* font-family */
+  font-size: 16px;                                            /* font-size */
+  color: #333333;                                             /* Inherited color (HEX) */
+  background-color: #fdfbf7;                                  /* background-color (HEX) */
+  line-height: 1.6;                                           /* line-height */
+}
+
+/* Grouping Selector: Headings */
+h1, h2, h3 {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-weight: 700;                                           /* font-weight */
+  color: #1a1a24;
+}
+
+/* ==========================================================================
+   2. HEADER & NAVIGATION
+   - Element Selectors, Descendant Selectors, display: inline-block, :hover
+   ========================================================================== */
+header {
+  background-color: #1a1a24; /* Named / HEX */
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2); /* RGB/RGBA color & Box shadow */
+}
+
+nav {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 16px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: 700;
+  color: gold; /* Named color */
+  letter-spacing: 1px;
+}
+
+/* Descendant Selector: nav ul */
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 15px;
+}
+
+/* Descendant Selector with display: inline-block */
+nav ul li a {
+  display: inline-block;        /* display: inline-block requirement */
+  color: white;                 /* Named color */
+  text-decoration: none;        /* text-decoration */
+  font-size: 15px;
+  font-weight: 500;
+  padding: 8px 14px;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+/* Pseudo-Class: :hover on Navigation Links */
+nav ul li a:hover {
+  background-color: gold;       /* Named color */
+  color: #1a1a24;
+  text-decoration: underline;   /* text-decoration on hover */
+}
+
+/* ==========================================================================
+   3. WELCOME SECTION (ID Selector & Background Properties)
+   - background-color
+   - background-image
+   - background-repeat
+   - background-position
+   - background-size
+   - Overriding inherited styling
+   ========================================================================== */
+#welcome {
+  background-color: #1a1a24;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.75)), url('images/hero.jpg');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  
+  color: white;                 /* Overriding inherited text color */
+  text-align: center;           /* text-align */
+  padding: 100px 20px;
+  margin-bottom: 40px;          /* Margin Collapsing (Top of #menu collapses with this) */
+}
+
+/* Specificity Demonstration: #welcome h1 (ID + element) overrides h1 */
+#welcome h1 {
+  font-size: 42px;
+  color: white;
+  margin-bottom: 16px;
+}
+
+.welcome-text {
+  max-width: 600px;
+  margin: 0 auto 24px auto;
+  font-size: 18px;
+  font-style: italic;           /* font-style: italic */
+  color: rgb(240, 240, 240);    /* RGB color */
+}
+
+/* Buttons (display: inline-block) */
+.btn {
+  display: inline-block;        /* display: inline-block */
+  padding: 10px 22px;
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 5px;
+  cursor: pointer;
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.btn-explore {
+  background-color: #e63946;
+  color: white;
+  padding: 12px 28px;
+  font-size: 16px;
+}
+
+.btn-explore:hover {
+  background-color: #b7094c;
+  transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   4. PSEUDO-ELEMENTS (::before, ::after)
+   - Adding symbols before and after headings
+   ========================================================================== */
+h2.section-heading {
+  text-align: center;
+  font-size: 32px;
+  margin-bottom: 30px;
+  color: #1a1a24;
+}
+
+/* ::before on section headings */
+h2.section-heading::before {
+  content: "★ ";
+  color: #e63946;
+}
+
+/* ::after on section headings */
+h2.section-heading::after {
+  content: " ★";
+  color: #e63946;
+}
+
+/* ==========================================================================
+   5. MENU SECTION & CSS BOX MODEL (Food Cards)
+   - width
+   - height
+   - padding
+   - border
+   - margin
+   - box-sizing: border-box (Content -> Padding -> Border -> Margin)
+   - Borders, Border Radius, and Box Shadow
+   ========================================================================== */
+#menu {
+  margin-top: 30px; /* Margin Collapsing demonstration with #welcome bottom margin */
+  padding: 30px 20px;
+  max-width: 1100px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.menu-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 25px;
+}
+
+/* Food Card: Complete Box Model Demonstration */
+.food-card {
+  box-sizing: border-box;       /* box-sizing: border-box */
+  width: 240px;                 /* Width */
+  height: 430px;                /* Height */
+  padding: 16px;                /* Padding */
+  border: 1px solid #e0e0e0;    /* Border */
+  margin: 10px;                 /* Margin */
+  background-color: #ffffff;    /* Background Color */
+  border-radius: 8px;           /* Border Radius */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* Box Shadow */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center;
+}
+
+/* Pseudo-Class: :first-child
+   The first food card (Pizza) has a different style: special border and shadow */
+.food-card:first-child {
+  border: 2px solid #e63946;    /* Distinct border */
+  box-shadow: 0 6px 18px rgba(230, 57, 70, 0.2); /* Distinct shadow */
+  background-color: #fffafa;
+}
+
+.food-img {
+  display: block;               /* display: block */
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 6px;
+  margin-bottom: 12px;
+}
+
+.food-name {
+  font-size: 19px;
+  margin-bottom: 8px;
+  color: #1a1a24;
+}
+
+/* Overflow property applied to card description with fixed height */
+.food-desc {
+  font-size: 13px;
+  color: #666666;
+  height: 60px;
+  overflow: hidden;             /* Overflow: hidden */
+  margin-bottom: 10px;
+  line-height: 1.4;
+}
+
+.food-price {
+  display: inline;              /* display: inline */
+  font-size: 18px;
+  font-weight: 700;
+  color: #e63946;
+  margin-bottom: 12px;
+}
+
+/* 
+   Cascade & Source Order Demonstration:
+   Two conflicting rules targeting .btn-order with identical specificity (0,0,1,0).
+   The later rule wins because of source order (Cascade).
+*/
+.btn-order {
+  background-color: #2b2d42;    /* Earlier rule (overridden) */
+}
+.btn-order {
+  background-color: #e63946;    /* Later rule (APPLIED by Cascade source order) */
+  color: white;
+  width: 100%;
+}
+
+/* Pseudo-Class: :hover on Order Now buttons */
+.btn-order:hover {
+  background-color: #b7094c;
+  transform: translateY(-2px);
+}
+
+/* Hidden Element Demonstration: display: none */
+.seasonal-deal {
+  display: none;                /* display: none */
+}
+
+/* ==========================================================================
+   6. ABOUT SECTION
+   - Element & Class Selectors, Text alignment, Line height
+   ========================================================================== */
+#about {
+  background-color: #ffffff;
+  padding: 50px 20px;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  border-top: 1px solid #eaeaea;
+  border-bottom: 1px solid #eaeaea;
+}
+
+.about-container {
+  max-width: 750px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.about-text {
+  font-size: 17px;
+  line-height: 1.8;
+  color: #555555;
+}
+
+/* ==========================================================================
+   7. CONTACT SECTION & ATTRIBUTE SELECTORS
+   - Width, Height, and Min/Max Constraints applied to .contact-box
+   - Attribute Selectors: input[type="text"], input[type="email"], etc.
+   ========================================================================== */
+#contact {
+  padding: 50px 20px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* Width, Height, and Constraints Demonstration on Content Box */
+.contact-box {
+  width: 85%;                   /* width */
+  min-width: 280px;             /* min-width constraint */
+  max-width: 580px;             /* max-width constraint */
+  min-height: 320px;            /* min-height constraint */
+  margin: 0 auto;
+  background-color: #ffffff;
+  padding: 30px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.07);
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  display: block;               /* display: block */
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: #1a1a24;
+}
+
+/* Attribute Selectors for inputs and textarea */
+input[type="text"],
+input[type="email"] {
+  padding: 10px 12px;
+  border: 1px solid #cccccc;
+  border-radius: 5px;
+  font-size: 14px;
+  font-family: inherit;
+  transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+textarea:focus {
+  outline: none;
+  border-color: #e63946;
+}
+
+textarea {
+  padding: 10px 12px;
+  border: 1px solid #cccccc;
+  border-radius: 5px;
+  font-size: 14px;
+  font-family: inherit;
+  resize: vertical;
+}
+
+/* Attribute Selector for Submit button */
+button[type="submit"] {
+  background-color: #1a1a24;
+  color: gold;                  /* Named color */
+  font-weight: 700;
+  padding: 12px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+  background-color: #e63946;
+  color: white;
+}
+
+/* ==========================================================================
+   8. FOOTER (Element Selector)
+   ========================================================================== */
+footer {
+  background-color: #1a1a24;
+  color: white;                 /* Named color */
+  text-align: center;           /* text-align */
+  padding: 24px;
+  margin-top: 50px;
+}
+
+footer p {
+  font-size: 14px;
+}
